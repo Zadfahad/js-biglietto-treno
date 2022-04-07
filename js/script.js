@@ -1,29 +1,25 @@
-//numeri di chilometri che l utente vuole percorrere,
+//Ask about the distance in km,
 const km = parseInt(prompt("Quanti chilometri vuoi percorrere?"));
 console.log(km, typeof(km));
 
-//eta del passegero,
+//Ask the age of the Passenger,
 const age = parseInt(prompt("quanti anni hai?"));
 console.log(age, typeof(age));
 
-//controllo se viene applivato lo sconto,
-const price = 0.21;
-const pricenotdiscounted = (price * km);    
+//discount if possible,
+let price = 0.21;
+console.log(price); 
 
-if (age < 18){
-     
-    const discount = (pricenotdiscounted * 20) / 100;
-    
-    const discountedprice = pricenotdiscounted - discount;
+let finalprice;
 
-    console.log(discountedprice);
+finalprice = price * km;
+
+if (age <=18) {
+    finalprice = finalprice - (finalprice * 20 / 100);
+}   else if (age >=65) {
+    finalprice = finalprice - (finalprice * 40 / 100);
+}   else {
+    cost = price * km;
 }
-
-if (age > 65){
-     
-    const discount = (pricenotdiscounted * 40) / 100;
-    
-    const discountedprice = pricenotdiscounted - discount;
-
-    console.log(discountedprice);
-}
+//final price
+document.getElementById('price').innerHTML = finalprice;
